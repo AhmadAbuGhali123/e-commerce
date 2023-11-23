@@ -22,27 +22,29 @@ class _ScreenSearchState extends State<ScreenSearch> {
               children: [
                 Row(
                   children: [
-                    Container(
-                      height: 50,
-                      width: 235,
-                      decoration: BoxDecoration(
+                    Expanded(
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
                           color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(20)),
-                      child: TextField(
-                        decoration: InputDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.search),
-                            label: Text("Search product")),
+                            labelText: "Search product",
+                          ),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 20, left: 20),
-                      child: CircleAvatar(
-                        maxRadius: 24,
-                        backgroundColor: Colors.grey[300],
-                        child: SvgPicture.asset("assets/icons/Cart Icon.svg"),
-                      ),
+                    SizedBox(width: 20),  // Add some space between elements
+                    CircleAvatar(
+                      maxRadius: 24,
+                      backgroundColor: Colors.grey[300],
+                      child: SvgPicture.asset("assets/icons/Cart Icon.svg"),
                     ),
+                    SizedBox(width: 20),  // Add some space between elements
                     CircleAvatar(
                       maxRadius: 24,
                       backgroundColor: Colors.grey[300],
@@ -50,6 +52,8 @@ class _ScreenSearchState extends State<ScreenSearch> {
                     ),
                   ],
                 ),
+
+                ////////////////////////////////////////////////////
                 SizedBox(
                   height: 30,
                 ),
@@ -84,29 +88,23 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   height: 40,
                 ),
                 SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       buildCategoryItem("Flash", "assets/icons/Flash Icon.svg"),
-                      SizedBox(
-                        width: 15,
-                      ),
+                      SizedBox(width: 15),
                       buildCategoryItem("Bill", "assets/icons/Bill Icon.svg"),
-                      SizedBox(
-                        width: 15,
-                      ),
+                      SizedBox(width: 15),
                       buildCategoryItem("Game", "assets/icons/Game Icon.svg"),
-                      SizedBox(
-                        width: 15,
-                      ),
+                      SizedBox(width: 15),
                       buildCategoryItem("Daily", "assets/icons/Gift Icon.svg"),
-                      SizedBox(
-                        width: 15,
-                      ),
+                      SizedBox(width: 15),
                       buildCategoryItem("More", "assets/icons/Discover.svg"),
                     ],
                   ),
                 ),
+
                 SizedBox(
                   height: 30,
                 ),

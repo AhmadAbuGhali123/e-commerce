@@ -165,7 +165,7 @@ class _OpenScreenState extends State<OpenScreen> {
                         ),
                         SizedBox(height: 20),
                         Container(
-                          width: double.infinity,
+                          width: MediaQuery.of(context).size.width, // Set the width based on the screen width
                           decoration: BoxDecoration(
                             color: Colors.black12,
                             borderRadius: BorderRadius.only(
@@ -176,7 +176,7 @@ class _OpenScreenState extends State<OpenScreen> {
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: Row(
                                   children: [
                                     CircleAvatar(
@@ -184,14 +184,14 @@ class _OpenScreenState extends State<OpenScreen> {
                                       maxRadius: 15,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(20.0),
+                                      padding: EdgeInsets.all(0.02 * MediaQuery.of(context).size.width), // Use a percentage-based padding
                                       child: CircleAvatar(
                                         backgroundColor: Colors.deepPurple,
                                         maxRadius: 15,
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(right: 20),
+                                      padding: EdgeInsets.only(right: 0.04 * MediaQuery.of(context).size.width), // Use a percentage-based padding
                                       child: CircleAvatar(
                                         backgroundColor: Colors.orange,
                                         maxRadius: 15,
@@ -201,20 +201,20 @@ class _OpenScreenState extends State<OpenScreen> {
                                       backgroundColor: Colors.white,
                                       maxRadius: 15,
                                     ),
-                                    SizedBox(width: 100),
+                                    SizedBox(width: 0.2 * MediaQuery.of(context).size.width), // Use a percentage-based spacing
                                     CircleAvatar(
                                       backgroundColor: Colors.white,
                                       child: SvgPicture.asset(
                                         "assets/icons/remove.svg",
-                                        width: 20,
+                                        width: 0.05 * MediaQuery.of(context).size.width, // Use a percentage-based icon size
                                       ),
                                     ),
-                                    SizedBox(width: 20),
+                                    SizedBox(width: 0.02 * MediaQuery.of(context).size.width), // Use a percentage-based spacing
                                     CircleAvatar(
                                       backgroundColor: Colors.white,
                                       child: SvgPicture.asset(
                                         "assets/icons/Plus Icon.svg",
-                                        width: 20,
+                                        width: 0.05 * MediaQuery.of(context).size.width, // Use a percentage-based icon size
                                       ),
                                     ),
                                   ],
@@ -223,6 +223,7 @@ class _OpenScreenState extends State<OpenScreen> {
                             ],
                           ),
                         ),
+
                         SizedBox(height: 50),
                         Container(
                           height: 110,
