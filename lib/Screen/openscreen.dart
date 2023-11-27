@@ -23,226 +23,275 @@ class _OpenScreenState extends State<OpenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(top: 10),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Icon(Icons.arrow_back, size: 30),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Text("4.8"),
-                          SizedBox(width: 5),
-                          SvgPicture.asset("assets/icons/Star Icon.svg"),
-                        ],
+                Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Icon(Icons.arrow_back, size: 30),
                       ),
-                      height: 20,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("4.8"),
+                            SizedBox(width: 5),
+                            SvgPicture.asset("assets/icons/Star Icon.svg"),
+                          ],
+                        ),
+                        height: 30,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Stack(
                   children: [
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            // تفاصيل الصورة الكبيرة
-                          },
-                          child: Image.asset(
-                            imagePaths[selectedImageIndex],
-                            width: double.infinity,
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            for (int i = 0; i < imagePaths.length; i++)
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    selectedImageIndex = i;
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(color: Colors.black),
-                                  ),
-                                  height: 50,
-                                  width: 50,
-                                  child: Image.asset(
-                                    imagePaths[i],
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Colors.black12,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 10, top: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                    GestureDetector(
+                      onTap: () {},
+                      child: Image.asset(
+                        imagePaths[selectedImageIndex],
+                        width: double.infinity,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    SizedBox(
+                      height: width1hight0(0,context)*0.420,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 50, right: 50),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text(
-                                  "Wireless Controller",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontFamily: "Muli",
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      height: 40,
-                                      width: 70,
+                                for (int i = 0; i < imagePaths.length; i++)
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        selectedImageIndex = i;
+                                      });
+                                    },
+                                    child: Container(
                                       decoration: BoxDecoration(
-                                        color: Colors.deepOrange[300],
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(10),
-                                          bottomLeft: Radius.circular(10),
-                                        ),
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(15),
                                       ),
-                                      child: SvgPicture.asset(
-                                        "assets/icons/Heart Icon_2.svg",
-                                        height: 30,
-                                        width: 30,
-                                        fit: BoxFit.contain,
+                                      height: 50,
+                                      width: 50,
+                                      child: Image.asset(
+                                        imagePaths[i],
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Text(
-                                  "Wireless Controller for PS4 gives you what\nyou want in your gaming from over precision\ncontrol your games to sharing ...  ",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: "Muli",
-                                    fontWeight: FontWeight.w500,
                                   ),
-                                ),
-                                SizedBox(height: 20),
-                                Text(
-                                  "See More Detail >",
-                                  style: TextStyle(
-                                    color: Colors.deepOrange,
-                                    fontSize: 18,
-                                    fontFamily: "Muli",
-                                    fontWeight: FontWeight.w500,
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+
+                    ///////////////////////////////////////////////////////
+
+
+                    SizedBox(
+                      height: width1hight0(0,context)*0.80,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            height: width1hight0(0,context)*0.350,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 15, top: 15),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Wireless Controller",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontFamily: "Muli",
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(10),
+                                        height: 50,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                          color: Colors.deepOrange[100],
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20),
+                                            bottomLeft: Radius.circular(20),
+                                          ),
+                                        ),
+                                        child: SvgPicture.asset(
+                                          "assets/icons/Heart Icon_2.svg",
+                                          color: Colors.red,
+                                          fit: BoxFit.none,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    "Wireless Controller for PS4 gives you what\nyou want in your gaming from over precision\ncontrol your games to sharing ...  ",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: "Muli",
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  Text(
+                                    "See More Detail >",
+                                    style: TextStyle(
+                                      color: Colors.deepOrange,
+                                      fontSize: 18,
+                                      fontFamily: "Muli",
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),//wirless
+
+
+
+
+
+                    SizedBox(
+                      height: width1hight0(0,context)*0.83,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[100],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
+                              ),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Row(
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: Colors.red,
+                                        maxRadius: 15,
+                                      ),
+                                      Padding(
+                                        padding:
+                                        EdgeInsets.all(0.02 * MediaQuery.of(context).size.width),
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.deepPurple,
+                                          maxRadius: 15,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            right: 0.04 * MediaQuery.of(context).size.width),
+                                        child: CircleAvatar(
+                                          backgroundColor: Colors.orange,
+                                          maxRadius: 15,
+                                        ),
+                                      ),
+                                      CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        maxRadius: 15,
+                                      ),
+                                      SizedBox(width: 0.2 * MediaQuery.of(context).size.width),
+                                      CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: SvgPicture.asset(
+                                          "assets/icons/remove.svg",
+                                          width: 0.05 * MediaQuery.of(context).size.width,
+                                        ),
+                                      ),
+                                      SizedBox(width: 0.02 * MediaQuery.of(context).size.width),
+                                      CircleAvatar(
+                                        backgroundColor: Colors.white,
+                                        child: SvgPicture.asset(
+                                          "assets/icons/Plus Icon.svg",
+                                          width: 0.05 * MediaQuery.of(context).size.width,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        Container(
-                          width: MediaQuery.of(context).size.width, // Set the width based on the screen width
-                          decoration: BoxDecoration(
-                            color: Colors.black12,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30),
-                            ),
-                          ),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(10.0),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                      backgroundColor: Colors.red,
-                                      maxRadius: 15,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(0.02 * MediaQuery.of(context).size.width), // Use a percentage-based padding
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.deepPurple,
-                                        maxRadius: 15,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 0.04 * MediaQuery.of(context).size.width), // Use a percentage-based padding
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.orange,
-                                        maxRadius: 15,
-                                      ),
-                                    ),
-                                    CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      maxRadius: 15,
-                                    ),
-                                    SizedBox(width: 0.2 * MediaQuery.of(context).size.width), // Use a percentage-based spacing
-                                    CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      child: SvgPicture.asset(
-                                        "assets/icons/remove.svg",
-                                        width: 0.05 * MediaQuery.of(context).size.width, // Use a percentage-based icon size
-                                      ),
-                                    ),
-                                    SizedBox(width: 0.02 * MediaQuery.of(context).size.width), // Use a percentage-based spacing
-                                    CircleAvatar(
-                                      backgroundColor: Colors.white,
-                                      child: SvgPicture.asset(
-                                        "assets/icons/Plus Icon.svg",
-                                        width: 0.05 * MediaQuery.of(context).size.width, // Use a percentage-based icon size
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        ],
+                      ),
+                    ),//4للوان
 
-                        SizedBox(height: 50),
-                        Container(
-                          height: 110,
-                          alignment: Alignment.bottomCenter,
-                          decoration: BoxDecoration(
-                            color: Colors.black12,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
+
+
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height*0.94,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            height: width1hight0(0,context)*0.14,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(50),
+                                topLeft: Radius.circular(50),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: CustomButton(
+                                onPressed: () {},
+                                buttonText: "Add To Cart",
+                                buttonColor: Colors.deepOrange,
+                              ),
                             ),
                           ),
-                          child: CustomButton(
-                            onPressed: () {},
-                            buttonText: "Add To Cart",
-                            buttonColor: Colors.deepOrange,
-                          ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                    ),//كبسة
                   ],
                 ),
               ],
@@ -252,4 +301,15 @@ class _OpenScreenState extends State<OpenScreen> {
       ),
     );
   }
+}
+
+double width1hight0 (int a,BuildContext context){
+  if(a==1){
+
+    return MediaQuery.of(context).size.width;
+  }
+  else {
+    return MediaQuery.of(context).size.height;
+  }
+
 }

@@ -11,9 +11,11 @@ class Textformfield extends StatelessWidget {
     return TextField(
 
     decoration: InputDecoration(
+      floatingLabelBehavior: FloatingLabelBehavior.always,
       labelText: labelText,
       suffixIcon: suffixIcon,
-
+      hintText: "email",
+      hintStyle: TextStyle(fontFamily: "Muli",),
 
 
 

@@ -6,14 +6,18 @@ import 'package:ecommerce/Screen/screensearsh.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../Screen/openscreen.dart';
+import '../Screen/otpver.dart';
+import '../Screen/splashscree.dart';
 
 Map<String, WidgetBuilder> routes() {
   return {
-    '/register': (context) => RegisterPage(),
+    '/':(context) => SplashScreen(),
+    RegisterPage.route: (context) => RegisterPage(),
     '/complateProf': (context) => complateProf(),
     '/ForgetPass': (context) => ForgetPass(),
     '/LoginPage': (context) => LoginPage(),
     '/ScreenSearsh': (context) => ScreenSearch(),
     '/OpenScreen':(context) => OpenScreen(),
+    '/OtpVer':(context) => OtpVer(),
   };
 }

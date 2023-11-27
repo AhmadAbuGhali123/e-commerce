@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   },
                   itemBuilder: (context, index) {
                     return Transform.rotate(
-                      angle: currentIndex * pi,
+                      angle: currentIndex * pi ,
                       child: Image.asset(
                         imagePaths[index],
                         width: 300,
@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
                   imagePaths.length,
-                  (index) => Padding(
+                      (index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 10,

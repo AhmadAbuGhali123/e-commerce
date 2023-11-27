@@ -5,6 +5,7 @@ import '../Widget/textformfield.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
+  static const route ='/register';
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();

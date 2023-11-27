@@ -19,13 +19,13 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25.0), // إضافة حواف منحنية بدرجة 25
+        borderRadius: BorderRadius.circular(25.0),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: buttonColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25.0), // إعداد نفس الحواف المنحنية هنا
+            borderRadius: BorderRadius.circular(25.0),
           ),
         ),
         onPressed: onPressed,

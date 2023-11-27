@@ -81,7 +81,7 @@ class _OtpVerState extends State<OtpVer> {
                   buttonColor: Colors.deepOrange,
                   buttonText: "Continue",
                   onPressed: () {
-
+                Navigator.pushNamed(context, '/LoginPage');
                   },
 
                 ),

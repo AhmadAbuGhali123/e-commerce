@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../Widget/prdauct_price.dart';
+import '../Widget/specialscreen.dart';
+
 class ScreenSearch extends StatefulWidget {
   const ScreenSearch({Key? key}) : super(key: key);
 
@@ -9,7 +12,7 @@ class ScreenSearch extends StatefulWidget {
 }
 
 class _ScreenSearchState extends State<ScreenSearch> {
-  int _selectedIndex = 0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -132,19 +135,23 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      buildSpecialOfferItem(
-                        "assets/images/Image Banner 2.png",
-                        "Smartphone",
-                        "18 Brands",
+                      SpecialScreen(
+                        title: "Smartphone",
+                        imagePath: "assets/images/Image Banner 2.png",
+                        subTitle: "18 Brands",
                       ),
+
                       SizedBox(
                         width: 20,
                       ),
-                      buildSpecialOfferItem(
-                        "assets/images/Image Banner 3.png",
-                        "Fashion",
-                        "24 Brands",
+                      SpecialScreen(
+                        title: "Fashion",
+                        imagePath: "assets/images/Image Banner 3.png",
+                        subTitle: "24 Brands",
                       ),
+
+
+
                     ],
                   ),
                 ),
@@ -171,31 +178,40 @@ class _ScreenSearchState extends State<ScreenSearch> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      InkWell(
-                        onTap: () {
+                  children: [
+                    ProductOrice(
+                      OnTap: () {
                           Navigator.pushNamed(context, '/OpenScreen');
+                      },
+                      imagePath: "assets/images/Image Popular Product 1.png",
+                      title: "Wirless Controller \nfor PS4" ,
+                      price:"\$46.99" ,
+
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.only(left: 20,right: 20),
+                      child: ProductOrice(
+                        OnTap: () {
+
                         },
-                        child: buildPopularProductItem(
-                          "assets/images/Image Popular Product 1.png",
-                          "Wireless Controller\nfor Ps4",
-                          "\$64.99",
-                        ),
+                        imagePath: "assets/images/Image Popular Product 2.png",
+                        title: "Nike sport White  \nMan pant" ,
+                        price:"\$50.50" ,
+
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: buildPopularProductItem(
-                          "assets/images/Image Popular Product 2.png",
-                          "Nike Sport White -\nMan Pant",
-                          "\$50.50",
-                        ),
-                      ),
-                      buildPopularProductItem(
-                        "assets/images/Image Popular Product 3.png",
-                        "Wireless Controller\nfor Ps4",
-                        "\$64.99",
-                      ),
-                    ],
+                    ),
+                    ProductOrice(
+                      OnTap: () {
+
+                      },
+                      imagePath: "assets/images/Image Popular Product 3.png",
+                      title: "Wirless Controller \nfor PS4" ,
+                      price:"\$46.99" ,
+
+                    ),
+
+                  ],
+
                   ),
                 ),
 
@@ -204,38 +220,24 @@ class _ScreenSearchState extends State<ScreenSearch> {
           ),
         ),
       ),
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          buildNavBarItem(Icons.home, 0),
-          buildNavBarItem(Icons.favorite, 1),
-          buildNavBarItem(Icons.chat, 2),
-          buildNavBarItem(Icons.person, 3),
-        ],
+      bottomNavigationBar:
+      Container(
+        height: 70,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SvgPicture.asset("assets/icons/Shop Icon.svg",color: Colors.deepOrange),
+            SvgPicture.asset("assets/icons/Heart Icon.svg",color: Colors.deepOrange),
+            SvgPicture.asset("assets/icons/Chat bubble Icon.svg",color: Colors.deepOrange),
+            SvgPicture.asset("assets/icons/User Icon.svg",color: Colors.deepOrange),
+          ],
+        ),
       ),
     );
   }
 
-  Widget buildNavBarItem(IconData icon, int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedIndex = index;
-        });
 
-        // Add navigation logic here based on the index...
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            color: _selectedIndex == index ? Colors.blue : Colors.grey,
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget buildCategoryItem(String title, String iconPath) {
     return Column(
@@ -267,92 +269,6 @@ class _ScreenSearchState extends State<ScreenSearch> {
     );
   }
 
-  Widget buildSpecialOfferItem(
-      String imagePath, String title, String subTitle) {
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(20.0),
-          child: Image(
-            image: AssetImage(imagePath),
-            width: 250.0,
-            height: 100.0,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: "Muli",
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
-              Text(
-                subTitle,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "Muli",
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
 
-  Widget buildPopularProductItem(String imagePath, String title, String price,) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
 
-        Container(
-          height: 150,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Color(0xFFFFFAF0),
-            image: DecorationImage(
-              image: AssetImage(imagePath),
-            ),
-          ),
-        ),
-        SizedBox(height: 10),
-        Text(
-          title,
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-        ),
-        SizedBox(height: 5),
-        Row(
-          children: [
-            Text(
-              price,
-              style: TextStyle(
-                  color: Colors.deepOrange,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20),
-            ),
-            SizedBox(width: 65),
-            GestureDetector(
-              onTap: () {
-                // Handle favorite icon tap
-              },
-              child: Icon(
-                Icons.favorite_border,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
 }

@@ -70,7 +70,7 @@ class _complateProfState extends State<complateProf> {
                   buttonColor: Colors.deepOrange,
                   buttonText: "Continue",
                   onPressed: () {
-                    Navigator.pushNamed(context, '/LoginPage');
+                    Navigator.pushNamed(context, '/OtpVer');
                   },
                 ),
                 SizedBox(height: 60),
