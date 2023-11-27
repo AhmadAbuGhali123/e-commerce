@@ -22,15 +22,21 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[400],
+        elevation: 0,
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        automaticallyImplyLeading: false,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
-              Text(
+              const Text(
                 "TOKOTO",
                 style: TextStyle(
                     fontFamily: "Muli",
@@ -38,9 +44,9 @@ class _SplashScreenState extends State<SplashScreen> {
                     fontSize: 40,
                     color: Colors.deepOrange),
               ),
-              Text("Welcome to Tokoto, Let's shop!",
+              const Text("Welcome to Tokoto, Let's shop!",
                   textAlign: TextAlign.center),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Rotating Images Section
               Container(
@@ -64,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   },
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Dots Navigation
               Row(
@@ -89,7 +95,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
 
               Padding(
-                padding: EdgeInsets.only(top: 100),
+                padding: const EdgeInsets.only(top: 100),
                 child: CustomButton(
                   buttonColor: Colors.deepOrange,
                   buttonText: "Continue",

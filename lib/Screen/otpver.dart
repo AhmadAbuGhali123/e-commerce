@@ -13,6 +13,12 @@ class _OtpVerState extends State<OtpVer> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[400],
+        elevation: 0,
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -20,13 +26,13 @@ class _OtpVerState extends State<OtpVer> {
             child: Column(
 
               children: [
-                SizedBox(height: 80,),
-                Text(
+                const SizedBox(height: 80,),
+                const Text(
                   "OTP Verification",
                   style: TextStyle(fontFamily: "Muli", fontWeight: FontWeight.w700, fontSize: 30),
                 ),
-                Text("We sent ypur code to +1 898 860 *** ", textAlign: TextAlign.center),
-                Row(
+                const Text("We sent ypur code to +1 898 860 *** ", textAlign: TextAlign.center),
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("This code will expired in "),
@@ -35,7 +41,7 @@ class _OtpVerState extends State<OtpVer> {
                 ),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 150),
+                  padding: const EdgeInsets.symmetric(vertical: 150),
 
 
                  child: Row(
@@ -52,7 +58,7 @@ class _OtpVerState extends State<OtpVer> {
                          ),
                          borderRadius: BorderRadius.circular(10.0),
                        ),
-                       child: TextField(
+                       child: const TextField(
                          textAlign: TextAlign.center,
                          style: TextStyle(fontSize: 20),
                          keyboardType: TextInputType.number,
@@ -85,9 +91,9 @@ class _OtpVerState extends State<OtpVer> {
                   },
 
                 ),
-                SizedBox(height: 60),
+                const SizedBox(height: 60),
 
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(top: 60),
                   child: Text("Resend OTP Code",),
                 ),

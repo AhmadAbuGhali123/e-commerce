@@ -15,6 +15,12 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[400],
+        elevation: 0,
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -28,32 +34,35 @@ class _RegisterPageState extends State<RegisterPage> {
                     onTap: () {
                       Navigator.of(context).pop();
                     },
-                    child: Icon(Icons.arrow_back, size: 30),
+                    child: const Icon(Icons.arrow_back, size: 30),
                   ),
                 ),
-                SizedBox(height: 80,),
-                Text(
+                const SizedBox(height: 80,),
+                const Text(
                   "Register Account",
                   style: TextStyle(fontFamily: "Muli", fontWeight: FontWeight.w700, fontSize: 30),
                 ),
-                Text("Complete your details or continue ", textAlign: TextAlign.center),
-                Text("with social media"),
-                SizedBox(height: 60),
-                Textformfield(
+                const Text("Complete your details or continue ", textAlign: TextAlign.center),
+                const Text("with social media"),
+                const SizedBox(height: 60),
+                const Textformfield(
+                  hintText: "Enter your email",
                   suffixIcon: Icon(Icons.email_outlined),
-                  labelText: "Enter your email",
+                  labelText: "Email",
                 ),
-                SizedBox(height: 40),
-                Textformfield(
+                const SizedBox(height: 40),
+                const Textformfield(
+                  hintText: "Enter your password",
                   suffixIcon: Icon(Icons.lock),
-                  labelText: "Enter your password",
+                  labelText: "Password",
                 ),
-                SizedBox(height: 40),
-                Padding(
+                const SizedBox(height: 40),
+                const Padding(
                  padding: EdgeInsets.only(bottom: 45),
                   child: Textformfield(
+                    hintText: "Re-Enter your password",
                     suffixIcon: Icon(Icons.lock),
-                    labelText: "Re-Enter your password",
+                    labelText: "Password",
                   ),
                 ),
 
@@ -65,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Navigator.pushNamed(context, "/complateProf");
                   },
                 ),
-                SizedBox(height: 60),
+                const SizedBox(height: 60),
                 Padding(
                   padding: const EdgeInsets.all(50.0),
                   child: Row(
@@ -73,15 +82,15 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       SvgPicture.asset("assets/icons/google-icon.svg"),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: SvgPicture.asset("assets/icons/facebook-2.svg"),
                       ),
                       SvgPicture.asset("assets/icons/twitter.svg"),
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text("By continuning your confirm that you agree"),
+                const SizedBox(height: 30),
+                const Text("By continuning your confirm that you agree"),
               ],
             ),
           ),

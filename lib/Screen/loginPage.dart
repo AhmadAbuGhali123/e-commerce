@@ -1,4 +1,4 @@
-import 'package:ecommerce/Screen/register.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../Widget/button.dart';
@@ -16,47 +16,55 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[400],
+        elevation: 0,
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
-                Text(
+                const Text(
                   "Welcome Back",
                   style: TextStyle(
                       fontFamily: "Muli",
                       fontWeight: FontWeight.w700,
                       fontSize: 30),
                 ),
-                Text("Sign in with your email and password ",
+                const Text("Sign in with your email and password ",
                     textAlign: TextAlign.center),
-                Text("or continue with social media"),
-                SizedBox(height: 60),
-                Textformfield(
+                const Text("or continue with social media"),
+                const SizedBox(height: 60),
+                const Textformfield(
+                  hintText: "Enter your email",
                   suffixIcon: Icon(Icons.email_outlined),
-                  labelText: "Enter your email",
+                  labelText: "Email",
                 ),
-                SizedBox(height: 30),
-                Textformfield(
+                const SizedBox(height: 30),
+                const Textformfield(
+                  hintText: "Enter your password",
                   suffixIcon: Icon(Icons.lock),
-                  labelText: "Enter your password",
+                  labelText: "password",
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Row(
                   children: [
                     MyCheckbox(),
-                    SizedBox(width: 8),
-                    Text("Remember me"),
-                    Spacer(),
+                    const SizedBox(width: 8),
+                    const Text("Remember me"),
+                    const Spacer(),
                     InkWell(
                       onTap: () {
                         Navigator.pushNamed(context, '/ForgetPass');
                       },
-                      child: Text(
+                      child: const Text(
                         "Forget Password",
                         style: TextStyle(
                           decoration: TextDecoration.underline,
@@ -67,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 CustomButton(
                   buttonColor: Colors.deepOrange,
                   buttonText: "Continue",
@@ -75,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.pushNamed(context, '/ScreenSearsh');
                   },
                 ),
-                SizedBox(height: 60),
+                const SizedBox(height: 60),
                 Padding(
                   padding: const EdgeInsets.all(50.0),
                   child: Row(
@@ -83,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       SvgPicture.asset("assets/icons/google-icon.svg"),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: SvgPicture.asset("assets/icons/facebook-2.svg"),
                       ),
                       SvgPicture.asset("assets/icons/twitter.svg"),
@@ -93,19 +101,19 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Don't have an account ?",
+                    const Text("Don't have an account ?",
                         style: TextStyle(fontSize: 18)),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, '/register');
                         },
-                        child: Text("Sign Up",
+                        child: const Text("Sign Up",
                             style: TextStyle(
                                 color: Colors.deepOrange, fontSize: 18))),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             ),
           ),

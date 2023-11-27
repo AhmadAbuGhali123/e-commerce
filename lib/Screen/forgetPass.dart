@@ -9,6 +9,12 @@ class ForgetPass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[400],
+        elevation: 0,
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -22,24 +28,25 @@ class ForgetPass extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).pop();
                     },
-                    child: Icon(Icons.arrow_back, size: 30),
+                    child: const Icon(Icons.arrow_back, size: 30),
                   ),
                 ),
 
 
-                SizedBox(height: 80,),
-                Text(
+                const SizedBox(height: 80,),
+                const Text(
                   "Forgot Password",
                   style: TextStyle(fontFamily: "Muli", fontWeight: FontWeight.w700, fontSize: 30),
                 ),
-                Text("please enter your email and we will send  ", textAlign: TextAlign.center),
-                Text("you a link to return to your account"),
+                const Text("please enter your email and we will send  ", textAlign: TextAlign.center),
+                const Text("you a link to return to your account"),
 
-                Padding(
+                const Padding(
                   padding: EdgeInsets.symmetric(vertical: 100),
                   child: Textformfield(
+                    hintText: "Enter your email",
                     suffixIcon: Icon(Icons.email_outlined),
-                    labelText: "Enter your email",
+                    labelText: "Email",
                   ),
                 ),
 
@@ -52,22 +59,22 @@ class ForgetPass extends StatelessWidget {
                   },
 
                 ),
-                SizedBox(height: 60),
+                const SizedBox(height: 60),
 
                 Padding(
-                  padding: EdgeInsets.only(top: 60),
+                  padding: const EdgeInsets.only(top: 60),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
 
-                      Text("Don't have an account ?",style: TextStyle(fontSize: 18)),
-                      SizedBox(width: 10),
+                      const Text("Don't have an account ?",style: TextStyle(fontSize: 18)),
+                      const SizedBox(width: 10),
 
                       InkWell(
                           onTap: () {
                             Navigator.pushNamed(context, '/register');
                           },
-                          child: Text("Sign Up", style: TextStyle(color: Colors.deepOrange,fontSize: 18))),
+                          child: const Text("Sign Up", style: TextStyle(color: Colors.deepOrange,fontSize: 18))),
                     ],
                   ),
                 ),

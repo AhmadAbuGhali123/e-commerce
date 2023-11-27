@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import '../Widget/button.dart';
 import '../Widget/textformfield.dart';
-import 'loginPage.dart';
+
 
 class complateProf extends StatefulWidget {
   const complateProf({super.key});
@@ -15,6 +14,12 @@ class _complateProfState extends State<complateProf> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[400],
+        elevation: 0,
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -29,38 +34,42 @@ class _complateProfState extends State<complateProf> {
                     onTap: () {
                       Navigator.of(context).pop();
                     },
-                    child: Icon(Icons.arrow_back, size: 30),
+                    child: const Icon(Icons.arrow_back, size: 30),
                   ),
                 ),
 
-                SizedBox(height: 80,),
-                Text(
+                const SizedBox(height: 80,),
+                const Text(
                   "Complete Profile",
                   style: TextStyle(fontFamily: "Muli", fontWeight: FontWeight.w700, fontSize: 30),
                 ),
-                Text("Complete your details or continue ", textAlign: TextAlign.center),
-                Text("with social media"),
-                SizedBox(height: 60),
-                Textformfield(
+                const Text("Complete your details or continue ", textAlign: TextAlign.center),
+                const Text("with social media"),
+                const SizedBox(height: 60),
+                const Textformfield(
+                  hintText: "Enter your first name",
                   suffixIcon: Icon(Icons.person),
-                  labelText: "Enter your first name",
+                  labelText: "Frst Name",
                 ),
-                SizedBox(height: 30),
-                Textformfield(
+                const SizedBox(height: 30),
+                const Textformfield(
+                  hintText:"Enter your last name" ,
                   suffixIcon: Icon(Icons.person),
-                  labelText: "Enter your last name",
+                  labelText: "Last Name",
                 ),
-                SizedBox(height: 30),
-                Textformfield(
+                const SizedBox(height: 30),
+                const Textformfield(
+                  hintText: "Enter your phone number",
                   suffixIcon: Icon(Icons.phone),
-                  labelText: "Enter your phone number",
+                  labelText: "Phone number",
                 ),
-                SizedBox(height: 30),
-                Padding(
+                const SizedBox(height: 30),
+                const Padding(
                   padding: EdgeInsets.only(bottom: 45),
                   child: Textformfield(
+                    hintText:"Enter your phone address",
                     suffixIcon: Icon(Icons.location_on),
-                    labelText: "Enter your phone address",
+                    labelText: "Address",
                   ),
                 ),
 
@@ -73,9 +82,9 @@ class _complateProfState extends State<complateProf> {
                     Navigator.pushNamed(context, '/OtpVer');
                   },
                 ),
-                SizedBox(height: 60),
-                Padding(
-                  padding: const EdgeInsets.all(60.0),
+                const SizedBox(height: 60),
+                const Padding(
+                  padding: EdgeInsets.all(60.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

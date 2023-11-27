@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class Textformfield extends StatelessWidget {
 
-  const Textformfield({super.key, required this.labelText, required this.suffixIcon,   });
+  const Textformfield({super.key, required this.labelText, required this.suffixIcon, required this.hintText,   });
   final String labelText;
   final Widget suffixIcon;
-
+  final String hintText;
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -14,7 +14,7 @@ class Textformfield extends StatelessWidget {
       floatingLabelBehavior: FloatingLabelBehavior.always,
       labelText: labelText,
       suffixIcon: suffixIcon,
-      hintText: "email",
+      hintText: hintText,
       hintStyle: TextStyle(fontFamily: "Muli",),
 
 

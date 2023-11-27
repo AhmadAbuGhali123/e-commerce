@@ -17,6 +17,12 @@ class _ScreenSearchState extends State<ScreenSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey[400],
+        elevation: 0,
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -32,7 +38,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: TextField(
+                        child: const TextField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.search),
@@ -41,13 +47,13 @@ class _ScreenSearchState extends State<ScreenSearch> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),  // Add some space between elements
+                    const SizedBox(width: 20),  // Add some space between elements
                     CircleAvatar(
                       maxRadius: 24,
                       backgroundColor: Colors.grey[300],
                       child: SvgPicture.asset("assets/icons/Cart Icon.svg"),
                     ),
-                    SizedBox(width: 20),  // Add some space between elements
+                    const SizedBox(width: 20),  // Add some space between elements
                     CircleAvatar(
                       maxRadius: 24,
                       backgroundColor: Colors.grey[300],
@@ -57,7 +63,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                 ),
 
                 ////////////////////////////////////////////////////
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Container(
@@ -68,8 +74,8 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   ),
                   height: 90,
                   width: double.infinity,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: Column(
                       children: [
                         Text("A Summer Surprise",
@@ -87,7 +93,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 SingleChildScrollView(
@@ -96,26 +102,26 @@ class _ScreenSearchState extends State<ScreenSearch> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       buildCategoryItem("Flash", "assets/icons/Flash Icon.svg"),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       buildCategoryItem("Bill", "assets/icons/Bill Icon.svg"),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       buildCategoryItem("Game", "assets/icons/Game Icon.svg"),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       buildCategoryItem("Daily", "assets/icons/Gift Icon.svg"),
-                      SizedBox(width: 15),
+                      const SizedBox(width: 15),
                       buildCategoryItem("More", "assets/icons/Discover.svg"),
                     ],
                   ),
                 ),
 
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
+                    const Text(
                       "Special for you",
                       style: TextStyle(
                           fontFamily: "Mali",
@@ -128,10 +134,10 @@ class _ScreenSearchState extends State<ScreenSearch> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                SingleChildScrollView(
+                const SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
@@ -156,12 +162,12 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 30, bottom: 20),
+                  padding: const EdgeInsets.only(top: 30, bottom: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
+                      const Text(
                         "Popular Products",
                         style: TextStyle(
                             fontFamily: "Mali",
@@ -189,7 +195,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
 
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(left: 20,right: 20),
+                      padding:  const EdgeInsets.only(left: 20,right: 20),
                       child: ProductOrice(
                         OnTap: () {
 
@@ -260,11 +266,11 @@ class _ScreenSearchState extends State<ScreenSearch> {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Text(title),
-        Text(""),
+        const Text(""),
       ],
     );
   }
