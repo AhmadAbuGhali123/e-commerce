@@ -79,7 +79,7 @@ class _OpenScreenState extends State<OpenScreen> {
                     ),
                     const SizedBox(height: 20),
                     SizedBox(
-                      height: width1hight0(0, context) * 0.420,
+                      height: width1hight0(0, context) * 0.4,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -116,7 +116,7 @@ class _OpenScreenState extends State<OpenScreen> {
                     const SizedBox(height: 20),
 
                     SizedBox(
-                      height: width1hight0(0, context) * 0.80,
+                      height: width1hight0(0, context) * 0.77,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [

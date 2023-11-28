@@ -11,6 +11,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late PageController _pageController;
   int currentIndex = 0;
 
   List<String> imagePaths = [
@@ -20,12 +21,23 @@ class _SplashScreenState extends State<SplashScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: currentIndex);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[400],
         elevation: 0,
-        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        shape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(50),
+            topLeft: Radius.circular(50),
+          ),
+        ),
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -39,45 +51,45 @@ class _SplashScreenState extends State<SplashScreen> {
               const Text(
                 "TOKOTO",
                 style: TextStyle(
-                    fontFamily: "Muli",
-                    fontWeight: FontWeight.w700,
-                    fontSize: 40,
-                    color: Colors.deepOrange),
+                  fontFamily: "Muli",
+                  fontWeight: FontWeight.w700,
+                  fontSize: 40,
+                  color: Colors.deepOrange,
+                ),
               ),
               const Text("Welcome to Tokoto, Let's shop!",
                   textAlign: TextAlign.center),
               const SizedBox(height: 20),
-
-              // Rotating Images Section
               Container(
                 height: 300,
                 child: PageView.builder(
+                  controller: _pageController,
                   itemCount: imagePaths.length,
+                  itemBuilder: (context, index) {
+                    double rotationAngle = (index - currentIndex) * pi;
+                    return Transform.rotate(
+                      angle: rotationAngle,
+                      child: Image.asset(
+                        imagePaths[index],
+                        width: 300,
+                        height: 300,
+                        fit: BoxFit.contain,
+                      ),
+                    );
+                  },
                   onPageChanged: (index) {
                     setState(() {
                       currentIndex = index;
                     });
                   },
-                  itemBuilder: (context, index) {
-                    return Transform.rotate(
-                      angle: currentIndex * pi ,
-                      child: Image.asset(
-                        imagePaths[index],
-                        width: 300,
-                        height: 300,
-                      ),
-                    );
-                  },
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Dots Navigation
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
                   imagePaths.length,
-                      (index) => Padding(
+                  (index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 10,
@@ -92,8 +104,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
               ),
-
-
               Padding(
                 padding: const EdgeInsets.only(top: 100),
                 child: CustomButton(
@@ -101,12 +111,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   buttonText: "Continue",
                   onPressed: () {
                     if (currentIndex < imagePaths.length - 1) {
-
-                      setState(() {
-                        currentIndex++;
-                      });
+                      _pageController.nextPage(
+                        duration: Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
                     } else {
-
                       Navigator.pushNamed(context, '/LoginPage');
                     }
                   },

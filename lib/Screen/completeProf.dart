@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../Widget/button.dart';
 import '../Widget/textformfield.dart';
 
-
 class complateProf extends StatefulWidget {
   const complateProf({super.key});
 
@@ -17,7 +16,9 @@ class _complateProfState extends State<complateProf> {
       appBar: AppBar(
         backgroundColor: Colors.grey[400],
         elevation: 0,
-        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        shape: const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50), topLeft: Radius.circular(50))),
         automaticallyImplyLeading: false,
       ),
       body: SafeArea(
@@ -25,8 +26,6 @@ class _complateProfState extends State<complateProf> {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-
-
               children: [
                 Container(
                   alignment: Alignment.topLeft,
@@ -37,13 +36,18 @@ class _complateProfState extends State<complateProf> {
                     child: const Icon(Icons.arrow_back, size: 30),
                   ),
                 ),
-
-                const SizedBox(height: 80,),
+                const SizedBox(
+                  height: 80,
+                ),
                 const Text(
                   "Complete Profile",
-                  style: TextStyle(fontFamily: "Muli", fontWeight: FontWeight.w700, fontSize: 30),
+                  style: TextStyle(
+                      fontFamily: "Muli",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 30),
                 ),
-                const Text("Complete your details or continue ", textAlign: TextAlign.center),
+                const Text("Complete your details or continue ",
+                    textAlign: TextAlign.center),
                 const Text("with social media"),
                 const SizedBox(height: 60),
                 const Textformfield(
@@ -53,7 +57,7 @@ class _complateProfState extends State<complateProf> {
                 ),
                 const SizedBox(height: 30),
                 const Textformfield(
-                  hintText:"Enter your last name" ,
+                  hintText: "Enter your last name",
                   suffixIcon: Icon(Icons.person),
                   labelText: "Last Name",
                 ),
@@ -67,15 +71,12 @@ class _complateProfState extends State<complateProf> {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 45),
                   child: Textformfield(
-                    hintText:"Enter your phone address",
+                    hintText: "Enter your phone address",
                     suffixIcon: Icon(Icons.location_on),
                     labelText: "Address",
                   ),
                 ),
-
-
                 CustomButton(
-                  
                   buttonColor: Colors.deepOrange,
                   buttonText: "Continue",
                   onPressed: () {
@@ -88,14 +89,12 @@ class _complateProfState extends State<complateProf> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                     Text("By continuing your confirm that you agree"),
+                      Text("By continuing your confirm that you agree"),
                       SizedBox(height: 5),
                       Text("with our Term and Condition"),
                     ],
                   ),
                 ),
-
-
               ],
             ),
           ),

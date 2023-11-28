@@ -12,15 +12,15 @@ class ScreenSearch extends StatefulWidget {
 }
 
 class _ScreenSearchState extends State<ScreenSearch> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[400],
         elevation: 0,
-        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        shape: const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50), topLeft: Radius.circular(50))),
         automaticallyImplyLeading: false,
       ),
       body: SafeArea(
@@ -47,13 +47,13 @@ class _ScreenSearchState extends State<ScreenSearch> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 20),  // Add some space between elements
+                    const SizedBox(width: 20),
                     CircleAvatar(
                       maxRadius: 24,
                       backgroundColor: Colors.grey[300],
                       child: SvgPicture.asset("assets/icons/Cart Icon.svg"),
                     ),
-                    const SizedBox(width: 20),  // Add some space between elements
+                    const SizedBox(width: 20),
                     CircleAvatar(
                       maxRadius: 24,
                       backgroundColor: Colors.grey[300],
@@ -61,8 +61,6 @@ class _ScreenSearchState extends State<ScreenSearch> {
                     ),
                   ],
                 ),
-
-                ////////////////////////////////////////////////////
                 const SizedBox(
                   height: 30,
                 ),
@@ -113,7 +111,6 @@ class _ScreenSearchState extends State<ScreenSearch> {
                     ],
                   ),
                 ),
-
                 const SizedBox(
                   height: 30,
                 ),
@@ -146,7 +143,6 @@ class _ScreenSearchState extends State<ScreenSearch> {
                         imagePath: "assets/images/Image Banner 2.png",
                         subTitle: "18 Brands",
                       ),
-
                       SizedBox(
                         width: 20,
                       ),
@@ -155,9 +151,6 @@ class _ScreenSearchState extends State<ScreenSearch> {
                         imagePath: "assets/images/Image Banner 3.png",
                         subTitle: "24 Brands",
                       ),
-
-
-
                     ],
                   ),
                 ),
@@ -184,66 +177,58 @@ class _ScreenSearchState extends State<ScreenSearch> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                  children: [
-                    ProductOrice(
-                      OnTap: () {
-                          Navigator.pushNamed(context, '/OpenScreen');
-                      },
-                      imagePath: "assets/images/Image Popular Product 1.png",
-                      title: "Wirless Controller \nfor PS4" ,
-                      price:"\$46.99" ,
-
-                    ),
-                    Padding(
-                      padding:  const EdgeInsets.only(left: 20,right: 20),
-                      child: ProductOrice(
+                    children: [
+                      ProductOrice(
                         OnTap: () {
-
+                          Navigator.pushNamed(context, '/OpenScreen');
                         },
-                        imagePath: "assets/images/Image Popular Product 2.png",
-                        title: "Nike sport White  \nMan pant" ,
-                        price:"\$50.50" ,
-
+                        imagePath: "assets/images/Image Popular Product 1.png",
+                        title: "Wirless Controller \nfor PS4",
+                        price: "\$46.99",
                       ),
-                    ),
-                    ProductOrice(
-                      OnTap: () {
-
-                      },
-                      imagePath: "assets/images/Image Popular Product 3.png",
-                      title: "Wirless Controller \nfor PS4" ,
-                      price:"\$46.99" ,
-
-                    ),
-
-                  ],
-
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: ProductOrice(
+                          OnTap: () {},
+                          imagePath:
+                              "assets/images/Image Popular Product 2.png",
+                          title: "Nike sport White  \nMan pant",
+                          price: "\$50.50",
+                        ),
+                      ),
+                      ProductOrice(
+                        OnTap: () {},
+                        imagePath: "assets/images/Image Popular Product 3.png",
+                        title: "Wirless Controller \nfor PS4",
+                        price: "\$46.99",
+                      ),
+                    ],
                   ),
                 ),
-
               ],
             ),
           ),
         ),
       ),
-      bottomNavigationBar:
-      Container(
+      bottomNavigationBar: Container(
         height: 70,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SvgPicture.asset("assets/icons/Shop Icon.svg",color: Colors.deepOrange),
-            SvgPicture.asset("assets/icons/Heart Icon.svg",color: Colors.deepOrange),
-            SvgPicture.asset("assets/icons/Chat bubble Icon.svg",color: Colors.deepOrange),
-            SvgPicture.asset("assets/icons/User Icon.svg",color: Colors.deepOrange),
+            SvgPicture.asset("assets/icons/Shop Icon.svg",
+                color: Colors.deepOrange),
+            SvgPicture.asset("assets/icons/Heart Icon.svg",
+                color: Colors.deepOrange),
+            SvgPicture.asset("assets/icons/Chat bubble Icon.svg",
+                color: Colors.deepOrange),
+            SvgPicture.asset("assets/icons/User Icon.svg",
+                color: Colors.deepOrange),
           ],
         ),
       ),
     );
   }
-
-
 
   Widget buildCategoryItem(String title, String iconPath) {
     return Column(
@@ -274,7 +259,4 @@ class _ScreenSearchState extends State<ScreenSearch> {
       ],
     );
   }
-
-
-
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../Widget/button.dart';
@@ -19,7 +18,9 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Colors.grey[400],
         elevation: 0,
-        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        shape: const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50), topLeft: Radius.circular(50))),
         automaticallyImplyLeading: false,
       ),
       body: SafeArea(

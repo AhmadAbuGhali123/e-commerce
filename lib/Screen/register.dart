@@ -5,7 +5,8 @@ import '../Widget/textformfield.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
-  static const route ='/register';
+
+  static const route = '/register';
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -18,7 +19,9 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         backgroundColor: Colors.grey[400],
         elevation: 0,
-        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(50),topLeft: Radius.circular(50))),
+        shape: const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50), topLeft: Radius.circular(50))),
         automaticallyImplyLeading: false,
       ),
       body: SafeArea(
@@ -26,7 +29,6 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-
               children: [
                 Container(
                   alignment: Alignment.topLeft,
@@ -37,12 +39,18 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: const Icon(Icons.arrow_back, size: 30),
                   ),
                 ),
-                const SizedBox(height: 80,),
+                const SizedBox(
+                  height: 80,
+                ),
                 const Text(
                   "Register Account",
-                  style: TextStyle(fontFamily: "Muli", fontWeight: FontWeight.w700, fontSize: 30),
+                  style: TextStyle(
+                      fontFamily: "Muli",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 30),
                 ),
-                const Text("Complete your details or continue ", textAlign: TextAlign.center),
+                const Text("Complete your details or continue ",
+                    textAlign: TextAlign.center),
                 const Text("with social media"),
                 const SizedBox(height: 60),
                 const Textformfield(
@@ -58,15 +66,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 40),
                 const Padding(
-                 padding: EdgeInsets.only(bottom: 45),
+                  padding: EdgeInsets.only(bottom: 45),
                   child: Textformfield(
                     hintText: "Re-Enter your password",
                     suffixIcon: Icon(Icons.lock),
                     labelText: "Password",
                   ),
                 ),
-
-
                 CustomButton(
                   buttonColor: Colors.deepOrange,
                   buttonText: "Continue",
