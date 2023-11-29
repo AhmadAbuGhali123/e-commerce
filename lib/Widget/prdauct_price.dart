@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProductOrice extends StatelessWidget {
+class ProductOrice extends StatefulWidget {
+
   const ProductOrice({super.key, required this.price, required this.title, required this.imagePath, required this.OnTap});
   final String imagePath;
   final String title;
@@ -8,13 +9,21 @@ class ProductOrice extends StatelessWidget {
   final void Function()? OnTap;
 
   @override
+  State<ProductOrice> createState() => _ProductOriceState();
+}
+
+class _ProductOriceState extends State<ProductOrice> {
+  bool isLiked =false;
+  @override
   Widget build(BuildContext context) {
+
+
     return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
         InkWell(
-         onTap: OnTap,
+         onTap: widget.OnTap,
           child: Container(
             height: 150,
             width: 150,
@@ -22,21 +31,21 @@ class ProductOrice extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Color(0xFFFFFAF0),
               image: DecorationImage(
-                image: AssetImage(imagePath),
+                image: AssetImage(widget.imagePath),
               ),
             ),
           ),
         ),
         SizedBox(height: 10),
         Text(
-          title,
+          widget.title,
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
         ),
         SizedBox(height: 5),
         Row(
           children: [
             Text(
-              price,
+              widget.price,
               style: TextStyle(
                   color: Colors.deepOrange,
                   fontWeight: FontWeight.w500,
@@ -45,12 +54,12 @@ class ProductOrice extends StatelessWidget {
             SizedBox(width: 65),
             GestureDetector(
               onTap: () {
-                // Handle favorite icon tap
+                setState(() {
+                  isLiked =!isLiked;
+                });
               },
-              child: Icon(
-                Icons.favorite_border,
-                color: Colors.grey,
-              ),
+              child: Icon( Icons.favorite,
+                color: isLiked ? Colors.red : Colors.grey ),
             ),
           ],
         ),

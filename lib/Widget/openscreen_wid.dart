@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../Widget/button.dart';
-import '../model/popular_det.dart';
 
-class OpenScreen extends StatefulWidget {
-  const OpenScreen({Key? key}) : super(key: key);
+class OpenScreen_Wid extends StatefulWidget {
+  const OpenScreen_Wid(String imagePath, {Key? key}) : super(key: key);
 
   @override
-  State<OpenScreen> createState() => _OpenScreenState();
+  State<OpenScreen_Wid> createState() => _OpenScreen_WidState();
 }
 
-class _OpenScreenState extends State<OpenScreen> {
+class _OpenScreen_WidState extends State<OpenScreen_Wid> {
   int selectedImageIndex = 0;
+
+  final List<String> imagePaths = [
+    "assets/images/ps4_console_white_1.png",
+    "assets/images/ps4_console_white_2.png",
+    "assets/images/ps4_console_white_3.png",
+    "assets/images/ps4_console_white_4.png",
+  ];
 
 
 
   @override
   Widget build(BuildContext context) {
-    Map<String ,dynamic> aregumuntsRou = ModalRoute.of(context)!.settings.arguments as Map<String ,dynamic>;
-    PopularDetModel popularDetModel = aregumuntsRou["PopularDetModel"];
-
-
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[400],
@@ -73,7 +74,7 @@ class _OpenScreenState extends State<OpenScreen> {
                     GestureDetector(
                       onTap: () {},
                       child: Image.asset(
-                        popularDetModel.image[selectedImageIndex],
+                        imagePaths[selectedImageIndex],
                         width: double.infinity,
                       ),
                     ),
@@ -88,7 +89,7 @@ class _OpenScreenState extends State<OpenScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                for (int i = 0; i < popularDetModel.image.length; i++)
+                                for (int i = 0; i < imagePaths.length; i++)
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
@@ -103,7 +104,7 @@ class _OpenScreenState extends State<OpenScreen> {
                                       height: 50,
                                       width: 50,
                                       child: Image.asset(
-                                        popularDetModel.image[i],
+                                        imagePaths[i],
                                       ),
                                     ),
                                   ),

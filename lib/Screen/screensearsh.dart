@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+
 import '../Widget/prdauct_price.dart';
 import '../Widget/specialscreen.dart';
+import '../model/popular_det.dart';
+import '../model/popular_model.dart';
 
 class ScreenSearch extends StatefulWidget {
   const ScreenSearch({Key? key}) : super(key: key);
@@ -12,23 +15,65 @@ class ScreenSearch extends StatefulWidget {
 }
 
 class _ScreenSearchState extends State<ScreenSearch> {
+  List<String> iconSpec=[
+    "assets/icons/Shop Icon.svg",
+    "assets/icons/Heart Icon.svg",
+    "assets/icons/Chat bubble Icon.svg",
+    "assets/icons/User Icon.svg"
+  ];
+
+List<PopularDetModel> popularDet=[
+  PopularDetModel(image: [
+       "assets/images/ps4_console_white_1.png",
+        "assets/images/ps4_console_white_2.png",
+        "assets/images/ps4_console_white_3.png",
+        "assets/images/ps4_console_white_4.png"
+  ],
+    tiltle: "Wireless Controller",
+    discrbtion: "Wireless Controller for PS4 gives you what\nyou want in your gaming from over precision\ncontrol your games to sharing ...  ",
+
+  ),
+  PopularDetModel(image: [
+    "assets/images/Image Popular Product 2.png",
+    "assets/images/Image Popular Product 2.png",
+    "assets/images/Image Popular Product 2.png",
+    "assets/images/Image Popular Product 2.png"
+  ],
+    tiltle: "Nike sport White \nMan pant",
+    discrbtion: "Wireless Controller for PS4 gives you what\nyou want in your gaming from over precision\ncontrol your games to sharing ...  ",
+
+  ),
+  PopularDetModel(image: [
+    "assets/images/Image Popular Product 3.png",
+    "assets/images/Image Popular Product 3.png",
+    "assets/images/Image Popular Product 3.png",
+    "assets/images/Image Popular Product 3.png"
+  ],
+    tiltle: "Nike sport White \nMan pant",
+    discrbtion: "Wireless Controller for PS4 gives you what\nyou want in your gaming from over precision\ncontrol your games to sharing ...  ",
+
+  ),
+
+
+];
+List<PopularModel> poPULar=[
+  PopularModel("assets/images/Image Popular Product 1.png", "Wirless Controller \nfor PS4", "\$46.99"),
+  PopularModel("assets/images/Image Popular Product 2.png", "Nike sport White  \nMan pant", "\$50.50"),
+  PopularModel("assets/images/Image Popular Product 3.png", "Wirless Controller \nfor PS4", "\$46.99")
+];
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey[400],
-        elevation: 0,
-        shape: const ContinuousRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(50), topLeft: Radius.circular(50))),
-        automaticallyImplyLeading: false,
-      ),
+
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.only(right: 16.0,left: 16.0,bottom: 16.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
+                SizedBox(height: 5,),
                 Row(
                   children: [
                     Expanded(
@@ -177,32 +222,31 @@ class _ScreenSearchState extends State<ScreenSearch> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      ProductOrice(
-                        OnTap: () {
-                          Navigator.pushNamed(context, '/OpenScreen');
-                        },
-                        imagePath: "assets/images/Image Popular Product 1.png",
-                        title: "Wirless Controller \nfor PS4",
-                        price: "\$46.99",
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: ProductOrice(
-                          OnTap: () {},
-                          imagePath:
-                              "assets/images/Image Popular Product 2.png",
-                          title: "Nike sport White  \nMan pant",
-                          price: "\$50.50",
-                        ),
-                      ),
-                      ProductOrice(
-                        OnTap: () {},
-                        imagePath: "assets/images/Image Popular Product 3.png",
-                        title: "Wirless Controller \nfor PS4",
-                        price: "\$46.99",
-                      ),
-                    ],
+                    children: List.generate(popularDet.length, (index) {
+                      return Row(
+                        children: [
+                          ProductOrice(
+                            OnTap: () {
+                              Navigator.pushNamed(context, '/OpenScreen',arguments: {
+                                "PopularDetModel":popularDet[index]
+
+                              });
+                            },
+
+                            imagePath: poPULar[index].imagePath,
+                            title: poPULar[index].title,
+                            price: poPULar[index].price,
+                          ),
+                          SizedBox(width: 20,),
+                        ],
+                      );
+
+                    })
+
+
+
+
+
                   ),
                 ),
               ],
@@ -211,18 +255,22 @@ class _ScreenSearchState extends State<ScreenSearch> {
         ),
       ),
       bottomNavigationBar: Container(
-        height: 70,
+        height: MediaQuery.of(context).size.height*0.08,
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SvgPicture.asset("assets/icons/Shop Icon.svg",
+            SvgPicture.asset(iconSpec[0],
                 color: Colors.deepOrange),
-            SvgPicture.asset("assets/icons/Heart Icon.svg",
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'HeartScreen',);
+              },
+              child: SvgPicture.asset(iconSpec[1],
+                  color: Colors.deepOrange),
+            ),
+            SvgPicture.asset(iconSpec[2],
                 color: Colors.deepOrange),
-            SvgPicture.asset("assets/icons/Chat bubble Icon.svg",
-                color: Colors.deepOrange),
-            SvgPicture.asset("assets/icons/User Icon.svg",
+            SvgPicture.asset(iconSpec[3],
                 color: Colors.deepOrange),
           ],
         ),
@@ -260,3 +308,4 @@ class _ScreenSearchState extends State<ScreenSearch> {
     );
   }
 }
+int a=10;

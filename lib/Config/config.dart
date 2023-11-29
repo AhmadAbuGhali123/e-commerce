@@ -4,7 +4,7 @@ import 'package:ecommerce/Screen/loginPage.dart';
 import 'package:ecommerce/Screen/register.dart';
 import 'package:ecommerce/Screen/screensearsh.dart';
 import 'package:flutter/cupertino.dart';
-
+import '../Screen/heart_screen.dart';
 import '../Screen/openscreen.dart';
 import '../Screen/otpver.dart';
 import '../Screen/splashscree.dart';
@@ -19,5 +19,6 @@ Map<String, WidgetBuilder> routes() {
     '/ScreenSearsh': (context) => ScreenSearch(),
     '/OpenScreen':(context) => OpenScreen(),
     '/OtpVer':(context) => OtpVer(),
+    'HeartScreen':(context) => HeartScreen(),
   };
 }
